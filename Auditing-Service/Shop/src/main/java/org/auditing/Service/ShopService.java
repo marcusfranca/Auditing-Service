@@ -1,23 +1,26 @@
 package org.auditing.Service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.auditing.Mapper.ShopMapper;
 import org.auditing.Model.Shop;
 import org.auditing.Repository.ShopRepository;
+import org.auditing.dto.PostShopDto;
 import org.auditing.dto.ShopDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ShopService implements IShopService {
 
-    @Autowired
-    ShopRepository shopRepository;
+
+    private final ShopRepository shopRepository;
 
     private final ShopMapper shopMapper;
+
 
     @Override
     public List<Shop> listShop() {
@@ -30,8 +33,9 @@ public class ShopService implements IShopService {
     }
 
     @Override
-    public Shop postShop(ShopDto shop) {
-        var ShopEntity = shopMapper.dtoToEntity(shop);
+    public Shop postShop(PostShopDto shop) {
+        var ShopEntity = shopMapper.PostDtoToEntity(shop);
+        ShopEntity.setIsApproval(false);
         return shopRepository.save(ShopEntity);
     }
 
@@ -43,6 +47,7 @@ public class ShopService implements IShopService {
             shopEntity.setId(shop.getId());
             shopEntity.setName(shop.getName());
             shopEntity.setValue(shop.getValue());
+            shopEntity.setIsApproval(false);
             shopRepository.save(shopEntity);
             return shopEntity;
         }catch (Exception ex){
@@ -50,6 +55,7 @@ public class ShopService implements IShopService {
              return null;
         }
     }
+
 
     @Override
     public Shop deleteShop(ShopDto shop, Long id) {

@@ -9,8 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.ms-email</groupId>
-    <artifactId>ms-email</artifactId>
+    <groupId>com.gov</groupId>
+    <artifactId>Agricultural</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

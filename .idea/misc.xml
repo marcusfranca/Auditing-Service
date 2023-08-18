@@ -11,6 +11,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Auditing-Service/ms-email/pom.xml" />
         <option value="$PROJECT_DIR$/Auditing/pom.xml" />
         <option value="$PROJECT_DIR$/Shop/pom.xml" />
       </set>
