@@ -62,6 +62,8 @@ public class ShopController {
         }
     }
 
+    //endpont para put approved
+
     @DeleteMapping("{id}")
     public ResponseEntity<ShopDto> DeleteProduct(@RequestBody ShopDto shop, @PathVariable Long id) {
         var entity = shopService.deleteShop(shop, id);

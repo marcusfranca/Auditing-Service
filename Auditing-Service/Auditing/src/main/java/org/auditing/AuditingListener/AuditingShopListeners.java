@@ -1,6 +1,6 @@
 package org.auditing.AuditingListener;
 
-import org.auditing.AuditingCreatedEvent;
+import org.auditing.AuditingEvent.AuditingCreatedEvent;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

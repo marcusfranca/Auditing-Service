@@ -1,4 +1,4 @@
-package org.auditing;
+package org.auditing.AuditingEvent;
 
 import lombok.Getter;
 import lombok.Setter;
