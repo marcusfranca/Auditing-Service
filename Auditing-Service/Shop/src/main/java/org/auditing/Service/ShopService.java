@@ -21,7 +21,6 @@ public class ShopService implements IShopService {
 
     private final ShopMapper shopMapper;
 
-
     @Override
     public List<Shop> listShop() {
         return shopRepository.findAll();
@@ -55,7 +54,6 @@ public class ShopService implements IShopService {
              return null;
         }
     }
-
 
     @Override
     public Shop deleteShop(ShopDto shop, Long id) {

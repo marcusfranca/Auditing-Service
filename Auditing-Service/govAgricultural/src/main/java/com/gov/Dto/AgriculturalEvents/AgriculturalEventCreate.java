@@ -10,11 +10,11 @@ public class AgriculturalEventCreate {
     private Long id;
     private String placeOfLand;
     private double valueOfLand;
-    private LocalDateTime localDateTimeBuy;
+    private String localDateTimeBuy;
 
     public AgriculturalEventCreate(){}
 
-    public AgriculturalEventCreate(Long id, String placeOfLand, double valueOfLand, LocalDateTime localDateTimeBuy){
+    public AgriculturalEventCreate(Long id, String placeOfLand, double valueOfLand, String localDateTimeBuy){
         this.id = id;
         this.placeOfLand = placeOfLand;
         this.valueOfLand = valueOfLand;

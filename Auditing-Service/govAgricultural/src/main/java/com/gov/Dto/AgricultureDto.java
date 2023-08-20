@@ -9,5 +9,5 @@ public class AgricultureDto {
 
     public String placeOfLand;
     public double valueOfLand;
-    public LocalDateTime localDateTimeBuy;
+    public String localDateTimeBuy;
 }

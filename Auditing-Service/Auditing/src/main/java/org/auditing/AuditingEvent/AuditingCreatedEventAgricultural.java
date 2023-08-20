@@ -11,11 +11,11 @@ public class AuditingCreatedEventAgricultural {
     private Long id;
     private String placeOfLand;
     private double valueOfLand;
-    private LocalDateTime localDateTimeBuy;
+    private String localDateTimeBuy;
 
     public AuditingCreatedEventAgricultural(){}
 
-    public AuditingCreatedEventAgricultural(Long id, String placeOfLand, double valueOfLand, LocalDateTime localDateTimeBuy){
+    public AuditingCreatedEventAgricultural(Long id, String placeOfLand, double valueOfLand, String localDateTimeBuy){
         this.id = id;
         this.placeOfLand = placeOfLand;
         this.valueOfLand = valueOfLand;
