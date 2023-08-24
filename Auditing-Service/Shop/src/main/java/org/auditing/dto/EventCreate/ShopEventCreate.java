@@ -1,4 +1,4 @@
-package org.auditing.EventCreate;
+package org.auditing.dto.EventCreate;
 
 import lombok.Getter;
 import lombok.Setter;

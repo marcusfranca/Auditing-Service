@@ -1,13 +1,14 @@
-package org.auditing.dto;
+package com.gov.Dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class PostShopDto {
-    //public Long id;  retirar esse id e depois colocar um extarnalId
+public class PutDto {
+
     @NotBlank(message = "Value of Field not be empty or null")
-    public String name;
+    public String placeOfLand;
     @NotBlank(message = "Value of Field not be empty or null")
-    public double value;
+    public double valueOfLand;
+    public String localDateTimeBuy;
 }

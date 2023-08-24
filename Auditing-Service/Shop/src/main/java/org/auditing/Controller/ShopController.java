@@ -1,7 +1,7 @@
 package org.auditing.Controller;
 
 import lombok.RequiredArgsConstructor;
-import org.auditing.EventCreate.ShopEventCreate;
+import org.auditing.dto.EventCreate.ShopEventCreate;
 import org.auditing.Mapper.ShopMapper;
 import org.auditing.Model.Shop;
 import org.auditing.Service.IShopService;
