@@ -1,0 +1,2 @@
+Foi criado um docker para essa aplicação e quando inicializei ele com o nome de postgres basicamente posso criar varios data bases pois ta tudo rodando  nesse cara.
+ -> ideia é ser totalmente desaclopado a aplicação de microservice, sendo assim utilizar cada serviço para um database faz com que uma coisa n venha afetar outra

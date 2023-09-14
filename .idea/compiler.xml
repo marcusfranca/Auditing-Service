@@ -9,10 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Agricultural" />
         <module name="Shop" />
+        <module name="IncomeTax" />
         <module name="Auditing" />
+        <module name="RabbitMQConfig" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="IncomeTaxReturn" target="17" />
       <module name="ms-email" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -21,6 +24,9 @@
       <module name="Agricultural" options="-parameters" />
       <module name="Auditing" options="-parameters" />
       <module name="Auditing-Service" options="" />
+      <module name="IncomeTax" options="-parameters" />
+      <module name="IncomeTaxReturn" options="-parameters" />
+      <module name="RabbitMQConfig" options="-parameters" />
       <module name="Shop" options="-parameters" />
       <module name="ms-email" options="-parameters" />
     </option>

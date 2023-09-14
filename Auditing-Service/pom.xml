@@ -18,6 +18,8 @@
         <module>Auditing</module>
         <module>Shop</module>
         <module>govAgricultural</module>
+        <module>IncomeTaxReturn</module>
+        <module>Utils</module>
     </modules>
     <properties>
         <java.version>17</java.version>

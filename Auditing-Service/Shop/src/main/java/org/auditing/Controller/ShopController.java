@@ -5,6 +5,7 @@ import org.auditing.dto.EventCreate.ShopEventCreate;
 import org.auditing.Mapper.ShopMapper;
 import org.auditing.Model.Shop;
 import org.auditing.Service.IShopService;
+import org.auditing.dto.EventCreate.ShopEventUpdate;
 import org.auditing.dto.PostShopDto;
 import org.auditing.dto.ShopDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -30,6 +31,7 @@ public class ShopController {
     private static final String SHOP_CREATED_ROUTING_KEY = "shop.v1.product-created";
     private static final String SHOP_UPDATE_ROUTING_KEY = "shop.v1.product-update";
     private static final String SHOP_DELETE_ROUTING_KEY = "shop.v1.product-delete";
+
     @GetMapping
     public ResponseEntity<List<Shop>> listShop() {
         return ResponseEntity.ok(shopService.listShop());
@@ -44,7 +46,7 @@ public class ShopController {
     public ResponseEntity<PostShopDto> CreateProduct(@RequestBody PostShopDto shop) {
         var entity = shopService.postShop(shop);
         var dto = shopMapper.entityToPostDto(entity);
-        ShopEventCreate shopEventCreate = new ShopEventCreate(shop.getId(), shop.getName(), shop.getValue());
+        ShopEventCreate shopEventCreate = new ShopEventCreate(shop.getName(), shop.getValue());
         rabbitTemplate.convertAndSend(SHOP_EXCHANGE_NAME, SHOP_CREATED_ROUTING_KEY, shopEventCreate);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
@@ -54,22 +56,20 @@ public class ShopController {
         var putProduct = shopService.putShop(shop, id);
         if (putProduct != null) {
             var dto = shopMapper.entityToDto(putProduct);
-            ShopEventCreate shopEventCreate = new ShopEventCreate(shop.getId(), shop.getName(), shop.getValue());
-            rabbitTemplate.convertAndSend(SHOP_EXCHANGE_NAME, SHOP_UPDATE_ROUTING_KEY, shopEventCreate);
+            ShopEventUpdate shopEventUpdate = new ShopEventUpdate(shop.getId(), shop.getName(), shop.getValue());
+            rabbitTemplate.convertAndSend(SHOP_EXCHANGE_NAME, SHOP_UPDATE_ROUTING_KEY, shopEventUpdate);
             return new ResponseEntity<>(dto, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    //endpont para put approved
-
     @DeleteMapping("{id}")
     public ResponseEntity<ShopDto> DeleteProduct(@RequestBody ShopDto shop, @PathVariable Long id) {
         var entity = shopService.deleteShop(shop, id);
         if (entity == null) {
-            ShopEventCreate shopEventCreate = new ShopEventCreate(shop.getId(), shop.getName(), shop.getValue());
-            rabbitTemplate.convertAndSend(SHOP_EXCHANGE_NAME, SHOP_DELETE_ROUTING_KEY, shopEventCreate);
+            ShopEventUpdate shopEventDelete = new ShopEventUpdate(shop.getId(), shop.getName(), shop.getValue());
+            rabbitTemplate.convertAndSend(SHOP_EXCHANGE_NAME, SHOP_DELETE_ROUTING_KEY, shopEventDelete);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

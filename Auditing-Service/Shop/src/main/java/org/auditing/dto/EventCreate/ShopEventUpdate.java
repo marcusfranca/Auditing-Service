@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShopEventCreate {
-
+public class ShopEventUpdate {
+    private Long id;
     private String name;
     private double value;
 }

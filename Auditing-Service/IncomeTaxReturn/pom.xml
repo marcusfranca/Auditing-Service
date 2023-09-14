@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.gov</groupId>
-    <artifactId>Agricultural</artifactId>
+    <artifactId>IncomeTax</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,10 +18,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>com.config</groupId>
-            <artifactId>RabbitMQConfig</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.config</groupId>
             <artifactId>RabbitMQConfig</artifactId>

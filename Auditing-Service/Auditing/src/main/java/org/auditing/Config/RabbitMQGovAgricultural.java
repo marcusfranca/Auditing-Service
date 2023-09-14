@@ -1,5 +1,6 @@
 package org.auditing.Config;
 
+import com.Config.RabbitMQConfigGlobal;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.FanoutExchange;
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RabbitMQGovAgricultural extends RabbitMQConfig{
+public class RabbitMQGovAgricultural extends RabbitMQConfigGlobal {
     public static final String AGRICULTURAL_EXCHANGE_NAME ="agriculture.v1.events";
     public static final String AGRICULTURAL_QUEUE_NAME_POST ="auditing.agricultural.v1.event.create";
     @Bean

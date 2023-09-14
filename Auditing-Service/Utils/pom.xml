@@ -9,25 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.gov</groupId>
-    <artifactId>Agricultural</artifactId>
+    <groupId>com.config</groupId>
+    <artifactId>RabbitMQConfig</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.config</groupId>
-            <artifactId>RabbitMQConfig</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.config</groupId>
-            <artifactId>RabbitMQConfig</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 
 </project>
